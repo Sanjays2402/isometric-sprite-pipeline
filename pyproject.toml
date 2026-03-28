@@ -1,0 +1,14 @@
+[project]
+name = "isometric-sprite-pipeline"
+version = "1.0.0"
+description = "Generate FFT-style isometric 8-way turnaround sprites from a single reference image using Nano Banana 2 + Veo 3.1 via fal.ai"
+requires-python = ">=3.10"
+dependencies = [
+    "fal-client>=0.5.0",
+    "Pillow>=10.0.0",
+    "requests>=2.31.0",
+    "click>=8.1.0",
+]
+
+[project.scripts]
+iso-sprite = "pipeline:cli"
