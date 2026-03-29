@@ -1,10 +1,23 @@
-# Isometric Sprite Pipeline
+# 🎮 Isometric Sprite Pipeline
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
+![fal.ai](https://img.shields.io/badge/fal.ai-API-FF6B6B?style=flat)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 Generate **Final Fantasy Tactics-style isometric 8-way turnaround sprites** from a single side-view reference image — using **Nano Banana 2** for image generation and **Veo 3.1 Fast** for walk-cycle animation, all via [fal.ai](https://fal.ai/).
 
 Based on the workflow from [@chongdashu's article](https://x.com/chongdashu/status/2037109734445084684).
 
-## Pipeline Overview
+## ✨ Features
+
+- 🖼️ Single input image → full 8-way isometric turnaround sheet
+- 🎬 Automatic walk-cycle animation via Veo 3.1 Fast
+- 🪞 Deterministic mirroring for consistent West-facing sprites
+- 🎯 Staged generation (anchor → cardinals → diagonals) for reliability
+- 📐 Configurable sprite height normalization
+- 🟢 Chroma-key green background removal
+
+## 🔄 Pipeline Overview
 
 ```
 Side-view sprite (your input)
@@ -22,7 +35,7 @@ Side-view sprite (your input)
    Veo 3.1 Fast — walk animation from SW anchor
 ```
 
-## Setup
+## 🚀 Setup
 
 ```bash
 cd isometric-sprite-pipeline
@@ -37,7 +50,7 @@ export FAL_KEY="your-fal-ai-key-here"
 
 Get a key at [fal.ai/dashboard/keys](https://fal.ai/dashboard/keys).
 
-## Usage
+## 📖 Usage
 
 ### Full Pipeline (end-to-end)
 
@@ -70,7 +83,7 @@ Generate a walk-cycle animation from any sprite frame:
 python pipeline.py animate --sprite output/sw_frame.png --output-dir ./output
 ```
 
-## Output Files
+## 📁 Output Files
 
 | File | Description |
 |------|-------------|
@@ -81,7 +94,7 @@ python pipeline.py animate --sprite output/sw_frame.png --output-dir ./output
 | `sw_frame.png` | Extracted SW frame used for animation |
 | `walk_cycle.mp4` | Walk-cycle animation from Veo 3.1 |
 
-## Key Lessons from the Article
+## 💡 Key Lessons from the Article
 
 1. **One-shot turnarounds don't work** — staged (anchor → cardinals → diagonals) is what makes it reliable
 2. **Mirror, don't re-prompt** — West kept drifting, so we deterministically mirror East
@@ -89,7 +102,7 @@ python pipeline.py animate --sprite output/sw_frame.png --output-dir ./output
 4. **Use `#00FF00` chroma-key green** — not magenta (too close to red accessories)
 5. **Consistency > peak quality** — Nano Banana 2 is more predictable than GPT Image 1.5 across runs
 
-## Project Structure
+## 🏗️ Project Structure
 
 ```
 isometric-sprite-pipeline/
@@ -101,3 +114,7 @@ isometric-sprite-pipeline/
 ├── pyproject.toml
 └── output/          # Generated assets go here
 ```
+
+## 👤 Author
+
+**Sanjay Santhanam**
